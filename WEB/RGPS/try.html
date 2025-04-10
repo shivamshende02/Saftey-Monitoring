@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HLS.js Example</title>
+    
+    <script src="Scripts/hls.js"></script>
+</head>
+<body>
+    <h1>HLS Stream Example</h1>
+    <video id="video" width="640" height="480" controls autoplay></video>
+
+    <script>
+        // Get the video element
+        const video = document.getElementById('video');
+
+        // Check if the browser supports HLS natively
+        if (Hls.isSupported()) {
+            const hls = new Hls();
+            const hlsUrl = 'rtsp://admin:tata_motors123@192.168.1.13:554/h264/video2'; // Replace with your HLS stream URL
+
+            // Load the HLS stream
+            hls.loadSource(hlsUrl);
+            hls.attachMedia(video);
+
+            // Handle errors
+            hls.on(Hls.Events.ERROR, function(event, data) {
+                if (data.fatal) {
+                    switch(data.fatal) {
+                        case Hls.ErrorTypes.NETWORK_ERROR:
+                            console.error('A network error occurred while loading the HLS stream.');
+                            break;
+                        case Hls.ErrorTypes.MEDIA_ERROR:
+                            console.error('A media error occurred while loading the HLS stream.');
+                            break;
+                        case Hls.ErrorTypes.OTHER_ERROR:
+                            console.error('An unknown error occurred.');
+                            break;
+                    }
+                }
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            // For Safari, which supports HLS natively
+            video.src = 'output.m3u8'; // Replace with your HLS stream URL
+        } else {
+            console.error('This browser does not support HLS.');
+        }
+    </script>
+</body>
+</html>

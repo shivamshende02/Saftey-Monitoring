@@ -1,0 +1,26 @@
+[
+  {
+    "IsWebCam": 0,
+    "Url": "rtsp://admin:tata_motors123@192.168.1.13:554/h264",
+    "Height": 1280,
+    "Width": 720,
+    "Ratio": 0.8,
+    "Railings": [
+      [ "(126", "2)", "(107", "410)", "(161", "460)", "(190", "4)", "(126", "4)" ],
+      [ "(293", "1)", "(347", "424)", "(402", "426)", "(416", "376)", "(380", "309)", "(359", "306)", "(322", "2)" ],
+      [ "(465", "306)", "(609", "347)", "(610", "296)", "(466", "282)" ]
+    ],
+    "ConfidenceThreshold": 0.5,
+    "IouThreshold": 0.5,
+    "HumanClassNo": 0,
+    "MobileClassNo": 67,
+    "BoxOverlapThreshold": 0.75,
+    "RailingColor": "MAGENTA",
+    "HumanRectColor": "BLUE",
+    "MobileRectColor": "CYAN",
+    "VoilationHumanRectColor": "RED"
+
+
+
+  }
+]

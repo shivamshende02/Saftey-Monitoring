@@ -1,0 +1,1 @@
+http://shivamm/rgps/ServerScripts/CameraService.asmx/getCamConfig

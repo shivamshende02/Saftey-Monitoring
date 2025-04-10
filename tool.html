@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Coordinates of Clicked Points</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        canvas {
+            border: 1px solid black;
+            cursor: crosshair;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+        #cxd{
+            position: relative;
+            left:0px;
+            width:100%;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Find Coordinates on Image</h1>
+
+    <!-- File Input -->
+    <input type="file" id="file-input" accept="image/*">
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <br />
+    <input type="button" onclick='document.getElementById("cxd").value="";' value="Clear"/>
+    <br />
+    <input type="text" id="cxd" />
+    <div id="output"></div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const output = document.getElementById('output');
+        const fileInput = document.getElementById('file-input');
+
+        let image = new Image();
+
+        // Load Image from File Input
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    image.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Draw Image on Canvas
+        image.onload = () => {
+            const aspectRatio = image.width / image.height;
+            if (image.width > canvas.width) {
+                canvas.width = 640;
+                canvas.height = 480;// / aspectRatio;
+            } else {
+                canvas.width = image.width;
+                canvas.height = image.height;
+            }
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        };
+
+        // Track Clicks and Show Coordinates
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left; // X-coordinate relative to canvas
+            const y = e.clientY - rect.top;  // Y-coordinate relative to canvas
+
+            // Draw a small dot where the user clicked
+            ctx.fillStyle = 'red';
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Output the coordinates
+            const coords = { x: Math.round(x), y: Math.round(y) };
+            var cc = document.getElementById("cxd");
+            if (cc.value.length < 3) {
+                cc.value += ((${Math.round(x)}, ${Math.round(y)})).trim();
+            } else {
+                cc.value += (,(${Math.round(x)},${Math.round(y)})).trim();
+            }
+             
+        });
+    </script>
+</body>
+</html>

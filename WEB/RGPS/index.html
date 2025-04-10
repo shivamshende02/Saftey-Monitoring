@@ -1,0 +1,165 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <style>
+        .col-4:hover, .col-2:hover {
+            background-color: #c4f7f5
+        }
+    </style>
+    <title></title>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.7.1.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+
+</head>
+<body style="margin: 15px">
+    <form id="Form1" runat="server" class="row form-inline">
+        <div class="col-4">
+            <label for="Url" class="form-label">URL:</label>
+            <input type="text" class="form-control" id="Url" placeholder="Enter URL" name="Url" value="rtsp://admin:tata_motors123@192.168.1.13:554/h264/" />
+        </div>
+        <div class=" col-2">
+            <label for="Hgt" class="form-label">Height:</label>
+            <input type="number" class="form-control" id="Hgt" placeholder="Height" name="Hgt" />
+        </div>
+        <div class=" col-2">
+            <label for="Wdt" class="form-label">Widht:</label>
+            <input type="number" class="form-control" id="Wdt" placeholder="Width" name="Wdt" />
+        </div>
+        <div class=" col-2">
+            <label for="Rat" class="form-label">Ratio:</label>
+            <input type="number" class="form-control" id="Rat" placeholder="Ratio" name="Rat" />
+        </div>
+
+        <div class=" col-2">
+            <label for="Ct" class="form-label">Confidence Threshold:</label>
+            <input type="number" class="form-control" id="Ct" placeholder="ConfidenceThreshold" name="Ct" />
+        </div>
+        <div class=" col-2">
+            <label for="It" class="form-label">Iou Threshold:</label>
+            <input type="number" class="form-control" id="It" placeholder="IouThreshold" name="It" />
+        </div>
+
+        <div class=" col-2">
+            <label for="Hc" class="form-label">Human Class No:</label>
+            <input type="number" class="form-control" id="Hc" placeholder="HumanClassNo" name="Hc" />
+        </div>
+        <div class=" col-2">
+            <label for="Mc" class="form-label">Mobile Class No:</label>
+            <input type="number" class="form-control" id="Mc" placeholder="MobileClassNo" name="Mc" />
+        </div>
+        <div class=" col-2">
+            <label for="Bx" class="form-label">Box Overlap Threshold:</label>
+            <input type="number" class="form-control" id="Bx" placeholder="BoxOverlapThreshold" name="Bx" />
+        </div>
+        <div class=" col-2">
+            <label for="Clr1" class="form-label">Box Overlap Threshold:</label>
+            <select class="form-select" id="Clr1">
+                <option>RED</option>
+                <option>GREEN</option>
+                <option>BLUE</option>
+                <option>YELLOW</option>
+                <option>CYAN</option>
+                <option>MAGENTA</option>
+                <option>WHITE</option>
+                <option>BLACK</option>
+                <option>GRAY</option>
+                <option>ORANGE</option>
+                <option>PINK</option>
+                <option>PURPLE</option>
+                <option>BROWN</option>
+                <option>TRANSPARENT</option>
+            </select>
+        </div>
+        <div class=" col-2">
+            <label for="Clr2" class="form-label">Box Overlap Threshold:</label>
+            <select class="form-select" id="Clr2">
+                <option>RED</option>
+                <option>GREEN</option>
+                <option>BLUE</option>
+                <option>YELLOW</option>
+                <option>CYAN</option>
+                <option>MAGENTA</option>
+                <option>WHITE</option>
+                <option>BLACK</option>
+                <option>GRAY</option>
+                <option>ORANGE</option>
+                <option>PINK</option>
+                <option>PURPLE</option>
+                <option>BROWN</option>
+                <option>TRANSPARENT</option>
+            </select>
+        </div>
+
+        <div class=" col-2">
+            <label for="Clr3" class="form-label">Box Overlap Threshold:</label>
+            <select class="form-select" id="Clr3">
+                <option>RED</option>
+                <option>GREEN</option>
+                <option>BLUE</option>
+                <option>YELLOW</option>
+                <option>CYAN</option>
+                <option>MAGENTA</option>
+                <option>WHITE</option>
+                <option>BLACK</option>
+                <option>GRAY</option>
+                <option>ORANGE</option>
+                <option>PINK</option>
+                <option>PURPLE</option>
+                <option>BROWN</option>
+                <option>TRANSPARENT</option>
+            </select>
+        </div>
+
+        <div class=" col-2">
+            <label for="Clr4" class="form-label">Box Overlap Threshold:</label>
+            <select class="form-select" id="Clr4">
+                <option>RED</option>
+                <option>GREEN</option>
+                <option>BLUE</option>
+                <option>YELLOW</option>
+                <option>CYAN</option>
+                <option>MAGENTA</option>
+                <option>WHITE</option>
+                <option>BLACK</option>
+                <option>GRAY</option>
+                <option>ORANGE</option>
+                <option>PINK</option>
+                <option>PURPLE</option>
+                <option>BROWN</option>
+                <option>TRANSPARENT</option>
+            </select>
+        </div>
+        <div class=" col-2">
+            <label>
+                <input type="checkbox" name="True" value="True">
+                Option 1
+            </label>
+        </div>
+
+
+        <div class=" col-2">
+            <label for="Sc" class="form-label">ShowCam:</label>
+            <input type="number" class="form-control" id="Sc" placeholder="XOffset" name="Sc" />
+        </div>
+        <input id="Checkbox1" type="checkbox" />
+        <div class=" col-2">
+            <label for="Fr" class="form-label">FrameRate:</label>
+            <input type="number" class="form-control" id="Fr" placeholder="FrameRate" name="Fr" />
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <video width="640" height="360" controls>
+        <source src="rtsp://admin:tata_motors123@192.168.1.13:554/h264/video2" type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+       
+    </video>
+</body>
+</html>
